@@ -1,24 +1,27 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
+
+from app.schemas.user import User
 
 
-class ProjectCreate(BaseModel):
+class ProjectBase(BaseModel):
     name: str
     description: Optional[str] = None
     status: Optional[str] = "ongoing"
 
 
-class ProjectUpdate(BaseModel):
-    name: Optional[str] = None
-    description: Optional[str] = None
-    status: Optional[str] = "ongoing"
+class ProjectCreate(ProjectBase):
+    pass
 
 
-class ProjectResponse(BaseModel):
+class ProjectUpdate(ProjectBase):
+    pass
+
+
+class ProjectResponse(ProjectBase):
     id: int
-    name: str
-    description: Optional[str] = None
-    status: Optional[str] = "ongoing"
+    owner_id: str
+    nominated_users: List[User] = []
 
     class Config:
         orm_mode = True

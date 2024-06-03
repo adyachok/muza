@@ -6,8 +6,8 @@ from ..session import Base
 project_users = Table(
     'project_users',
     Base.metadata,
-    Column('project_id', Integer, ForeignKey('projects.id')),
-    Column('user_id', Integer, ForeignKey('users.id'))
+    Column('project_id', Integer, ForeignKey('projects.id'), primary_key=True),
+    Column('user_id', String, ForeignKey('users.id'), primary_key=True)
 )
 
 

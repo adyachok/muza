@@ -19,7 +19,7 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from app.db.session import Base
-from app.db.models.project import Project
+from app.db.models.project import Project, User
 from app.db.models.persona import Persona
 target_metadata = Base.metadata
 
