@@ -20,8 +20,9 @@ class ProjectUpdate(ProjectBase):
 
 class ProjectResponse(ProjectBase):
     id: int
-    owner_id: str
-    nominated_users: List[User] = []
+    # owner_id: str
+    # nominated_users: List[User] = []
 
     class Config:
         orm_mode = True
+        from_attributes = True
